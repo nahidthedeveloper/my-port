@@ -12,7 +12,7 @@ export default function Home() {
                     A passionate full stack web developer from Bangladesh.
                 </h6>
                 <button
-                    className="my-16 lg:mt-36 px-8 py-3 text-[4vw] md:text-[2vw] lg:text-[1.2vw] bg-[#178573] text-white rounded-full">
+                    className="my-16 lg:mt-36 px-8 py-3 text-[4vw] md:text-[2vw] lg:text-[1.2vw] bg-[#178573] text-white rounded-full font-fira_regular">
                     Get in touch
                 </button>
             </div>
