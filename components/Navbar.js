@@ -1,10 +1,9 @@
 'use client'
 import Link from "next/link";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBarsStaggered, faCircleXmark} from "@fortawesome/free-solid-svg-icons";
+import CloseIcon from '@mui/icons-material/Close';
 import {useGSAP} from "@gsap/react";
 import {gsap} from "gsap";
-import {useRef, useState} from "react";
+import {useRef,} from "react";
 import {usePathname} from "next/navigation";
 
 const links = [
@@ -28,34 +27,36 @@ export default function Navbar() {
         tl.current.to(sideMenu.current, {
             right: 0
         })
-            .from('#link',{
-
-            })
+            .from('#link', {})
     });
 
     const handleClose = contextSafe(() => {
         tl.current.to(sideMenu.current, {
-            right: '-50%'
+            right: '-65%'
         });
     });
 
     return (
-        <div>
-            <div className='w-full bg-purple-800 flex justify-between items-center py-6 px-4 md:p-6 sticky top-0'>
+        <div className='w-full flex justify-center'>
+            <div className='max-w-[1216px] w-full flex justify-between items-center px-4 py-6 sticky top-0'>
                 <Link href='/'>
-                    <h2 className='uppercase text-2xl font-anton_regular text-white'>
+                    <h2 className='uppercase text-4xl font-anton_regular text-orange-500'>
                         Nahid Port.
                     </h2>
                 </Link>
-                <FontAwesomeIcon icon={faBarsStaggered}
-                                 id='open'
-                                 onClick={handleOpen}
-                                 className='w-6 h-6 text-white font-bold cursor-pointer'/>
+                <div
+                    onClick={handleOpen}
+                    className="flex flex-col justify-between w-14 h-12 bg-orange-500 p-3 rounded-xl">
+                    <div className="w-full h-1 bg-white rounded"></div>
+                    <div className="w-full h-1 bg-white rounded"></div>
+                    <div className="w-full h-1 bg-white rounded"></div>
+                </div>
+
             </div>
 
             <div
                 ref={sideMenu}
-                className='flex flex-col gap-8 bg-[rgba(107,33,168,0.17)] backdrop-blur-2xl w-full h-screen md:w-1/3 px-24 pt-32 fixed top-0 -right-1/3'>
+                className='flex flex-col gap-8 bg-[rgba(249,115,22,0.17)] backdrop-blur-2xl w-2/3 h-screen md:w-1/3 px-24 pt-32 fixed top-0 -right-2/3 md:-right-1/3'>
                 {
                     links.map((link, index) =>
                         <Link href={link.path} key={index} onClick={handleClose} id='link'>
@@ -65,10 +66,9 @@ export default function Navbar() {
                         </Link>
                     )
                 }
-                <FontAwesomeIcon icon={faCircleXmark}
-                                 id='close'
-                                 onClick={handleClose}
-                                 className='w-8 h-8 text-white font-bold absolute top-6 right-6  cursor-pointer'/>
+                <CloseIcon
+                    onClick={handleClose}
+                    className='w-12 h-12 text-white absolute top-6 right-6 bg-orange-500 p-2 rounded-xl'/>
             </div>
         </div>
     )

@@ -33,7 +33,7 @@ export default function RootLayout({children}) {
     return (
         <html lang="en">
         <body
-            className={`${FiraCodeRegular.variable} ${FiraCodeBold.variable} ${Exo2Regular.variable} ${Exo2Bold.variable} ${AntonRegular.variable}`}
+            className={`${FiraCodeRegular.variable} ${FiraCodeBold.variable} ${Exo2Regular.variable} ${Exo2Bold.variable} ${AntonRegular.variable} bg-[#f5eee5] w-full min-h-screen`}
         >
         <Navbar/>
         {children}
