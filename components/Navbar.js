@@ -146,7 +146,7 @@ export default function Navbar() {
                     icon={faXmark}
                     id='closeButton'
                     onClick={handleClose}
-                    className="w-8 h-8 text-white absolute top-6 right-6 bg-[#178573] p-2 rounded-xl cursor-pointer"
+                    className="w-6 h-6 text-white absolute top-6 right-6 bg-[#178573] p-2 rounded-xl cursor-pointer"
                 />
             </div>
         </div>

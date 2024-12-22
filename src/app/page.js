@@ -1,6 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
+
+import TitleScroll from "../../components/TitleScroll";
 
 export default function Home() {
+
     return (
         <div>
             <section className="max-w-screen-xl w-full px-4 m-auto flex flex-col lg:flex-row justify-between">
@@ -12,10 +16,12 @@ export default function Home() {
                     <h6 className="text-[3vw] md:text-[1.5vw] lg:text-[1vw] font-fira_regular mt-4">
                         A passionate full stack web developer from Bangladesh.
                     </h6>
-                    <button
-                        className="my-16 lg:mt-36 px-8 py-3 text-[4vw] md:text-[2vw] lg:text-[1.2vw] bg-[#178573] text-white rounded-full font-fira_regular">
-                        Get in touch
-                    </button>
+                    <div className='my-16 lg:mt-36'>
+                        <Link href={'/contact'}
+                              className="px-8 py-3 text-[4vw] md:text-[2vw] lg:text-[1.2vw] bg-[#178573] text-white rounded-full font-fira_regular">
+                            Get in touch
+                        </Link>
+                    </div>
                 </div>
                 <div className="mt-8 lg:mt-0 flex justify-center lg:justify-end">
                     <div className="relative w-full md:w-[50vw] lg:w-[40vw]">
@@ -30,8 +36,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className='min-h-screen w-full flex justify-center items-center'>
-                section 2
+            <section className='min-h-screen w-full flex justify-center items-center relative overflow-x-hidden'>
+                <TitleScroll/>
             </section>
         </div>
     );
