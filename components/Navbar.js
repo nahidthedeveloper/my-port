@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import CloseIcon from '@mui/icons-material/Close';
 import {gsap} from 'gsap';
 import {useRef, useEffect} from 'react';
 import {usePathname} from 'next/navigation';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faXmark} from "@fortawesome/free-solid-svg-icons";
 
 const links = [
     {name: 'Home', path: '/'},
@@ -141,10 +142,11 @@ export default function Navbar() {
                         </h2>
                     </Link>
                 ))}
-                <CloseIcon
+                <FontAwesomeIcon
+                    icon={faXmark}
                     id='closeButton'
                     onClick={handleClose}
-                    className="w-12 h-12 text-white absolute top-6 right-6 bg-[#178573] p-2 rounded-xl cursor-pointer"
+                    className="w-8 h-8 text-white absolute top-6 right-6 bg-[#178573] p-2 rounded-xl cursor-pointer"
                 />
             </div>
         </div>

@@ -4,8 +4,8 @@ import {gsap} from "gsap";
 import {useRef} from "react";
 
 export default function About() {
-    const container = useRef();
-    const tl = useRef();
+    const container = useRef(null);
+    const tl = useRef(null);
 
     useGSAP(() => {
         tl.current = gsap.timeline()

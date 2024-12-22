@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 const FiraCodeRegular = localFont({
     src: "./fonts/FiraCode-Regular.ttf",
@@ -37,6 +38,7 @@ export default function RootLayout({children}) {
         >
         <Navbar/>
         {children}
+        <Footer/>
         </body>
         </html>
     );
