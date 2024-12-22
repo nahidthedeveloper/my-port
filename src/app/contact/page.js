@@ -35,17 +35,17 @@ export default function Contact() {
                     </ul>
 
                     <ul className="flex mt-12 space-x-4">
-                        <li className="bg-[#178573] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+                        <li className="bg-primary h-10 w-10 rounded-full flex items-center justify-center shrink-0">
                             <Link href="">
                                 <FontAwesomeIcon icon={faFacebookF} className='h-4 w-4 text-white'/>
                             </Link>
                         </li>
-                        <li className="bg-[#178573] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+                        <li className="bg-primary h-10 w-10 rounded-full flex items-center justify-center shrink-0">
                             <Link href="">
                                 <FontAwesomeIcon icon={faLinkedin} className='h-4 w-4 text-white'/>
                             </Link>
                         </li>
-                        <li className="bg-[#178573] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+                        <li className="bg-primary h-10 w-10 rounded-full flex items-center justify-center shrink-0">
                             <Link href="">
                                 <FontAwesomeIcon icon={faGithub} className='h-4 w-4 text-white'/>
                             </Link>
@@ -64,7 +64,7 @@ export default function Contact() {
                         <textarea placeholder='Message' rows="6"
                                   className="w-full rounded-lg px-4 text-gray-800 text-sm pt-3 outline-[#178573]"></textarea>
                         <button type='button'
-                                className="text-white bg-[#178573] tracking-wide rounded-lg text-sm px-4 py-3 flex items-center justify-center w-full !mt-6">
+                                className="text-white bg-primary tracking-wide rounded-lg text-sm px-4 py-3 flex items-center justify-center w-full !mt-6">
                             <FontAwesomeIcon icon={faPaperPlane} className='h-4 w-4 text-white mr-2'/>
                             Send Message
                         </button>

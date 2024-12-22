@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import ReactLenis from "lenis/react";
 
 const FiraCodeRegular = localFont({
     src: "./fonts/FiraCode-Regular.ttf",
@@ -36,9 +37,11 @@ export default function RootLayout({children}) {
         <body
             className={`${FiraCodeRegular.variable} ${FiraCodeBold.variable} ${Exo2Regular.variable} ${Exo2Bold.variable} ${AntonRegular.variable} bg-[#f5eee5] w-full min-h-screen`}
         >
-        <Navbar/>
-        {children}
-        <Footer/>
+        <ReactLenis options={{duration: 2}} root>
+            <Navbar/>
+            {children}
+            <Footer/>
+        </ReactLenis>
         </body>
         </html>
     );

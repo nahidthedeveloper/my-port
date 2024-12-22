@@ -1,13 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import "./globals.css";
 
 import TitleScroll from "../../components/TitleScroll";
+import CircleText from "../../components/CircleText";
 
 export default function Home() {
 
     return (
         <div>
-            <section className="max-w-screen-xl w-full px-4 m-auto flex flex-col lg:flex-row justify-between">
+            <section id='section1'
+                     className="max-w-screen-xl w-full min-h-screen px-4 m-auto flex flex-col lg:flex-row justify-between">
                 <div className="text-center lg:text-left">
                     <h1 className="text-[8vw] md:text-[6vw] lg:text-[5vw] font-exo2_bold mt-16 lg:mt-32 leading-[1]">
                         Hi, my <br/> <span className="whitespace-nowrap">name is Nahid.</span>
@@ -18,7 +21,7 @@ export default function Home() {
                     </h6>
                     <div className='my-16 lg:mt-36'>
                         <Link href={'/contact'}
-                              className="px-8 py-3 text-[4vw] md:text-[2vw] lg:text-[1.2vw] bg-[#178573] text-white rounded-full font-fira_regular">
+                              className="px-8 py-3 text-[4vw] md:text-[2vw] lg:text-[1.2vw] bg-primary text-white rounded-full font-fira_regular">
                             Get in touch
                         </Link>
                     </div>
@@ -26,7 +29,7 @@ export default function Home() {
                 <div className="mt-8 lg:mt-0 flex justify-center lg:justify-end">
                     <div className="relative w-full md:w-[50vw] lg:w-[40vw]">
                         <Image
-                            src="/men.svg"
+                            src="images/men.svg"
                             alt="Image"
                             width="900"
                             height="900"
@@ -36,9 +39,14 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className='min-h-screen w-full flex justify-center items-center relative overflow-x-hidden'>
+            <section
+                id='section2'
+                className="min-h-screen w-full flex justify-center items-center relative overflow-x-hidden bg-men bg-cover bg-center bg-no-repeat"
+            >
+                <CircleText/>
                 <TitleScroll/>
             </section>
+
         </div>
     );
 }

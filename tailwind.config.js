@@ -17,6 +17,12 @@ module.exports = {
                 exo2_bold: ['var(--font-exo2-bold)'],
                 anton_regular: ['var(--font-anton-regular)'],
             },
+            backgroundColor: {
+                'primary': '#178573'
+            },
+            backgroundImage: {
+                'men': "url('/images/men.jpg')",
+            }
         },
     },
     plugins: [],

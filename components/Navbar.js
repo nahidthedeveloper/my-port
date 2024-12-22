@@ -116,7 +116,7 @@ export default function Navbar() {
                 </Link>
                 <div
                     onClick={handleOpen}
-                    className="flex flex-col justify-between w-14 h-12 bg-[#178573] p-3 rounded-xl cursor-pointer"
+                    className="flex flex-col justify-between w-14 h-12 bg-primary p-3 rounded-xl cursor-pointer"
                     ref={openButton}
                 >
                     <div className="w-full h-1 bg-white rounded"></div>
@@ -146,7 +146,7 @@ export default function Navbar() {
                     icon={faXmark}
                     id='closeButton'
                     onClick={handleClose}
-                    className="w-6 h-6 text-white absolute top-6 right-6 bg-[#178573] p-2 rounded-xl cursor-pointer"
+                    className="w-6 h-6 text-white absolute top-6 right-6 bg-primary p-2 rounded-xl cursor-pointer"
                 />
             </div>
         </div>
