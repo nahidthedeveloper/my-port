@@ -62,8 +62,9 @@ export default function About() {
                                 </div>
                             </div>
                         </div>
-                        <button className="sm:w-fit w-full group px-3.5 py-2 bg-primary rounded-lg justify-center items-center flex">
-                        <span className="px-1.5 text-sm text-white font-medium leading-6">Read More</span>
+                        <button
+                            className="sm:w-fit w-full group px-3.5 py-2 bg-primary rounded-lg justify-center items-center flex">
+                            <span className="px-1.5 text-sm text-white font-medium leading-6">Read More</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
                                  fill="none">
                                 <path d="M6.75265 4.49658L11.2528 8.99677L6.75 13.4996" stroke="white"/>
@@ -73,8 +74,11 @@ export default function About() {
                     <div className="w-full lg:justify-start justify-center items-start flex">
                         <div
                             className="w-full lg:w-[60vw] h-[80vw] lg:h-[579px] rounded-3xl sm:border border-gray-200">
-                            <img className="w-full h-full rounded-3xl object-cover"
-                                 src="https://pagedone.io/asset/uploads/1717742431.png" alt="about Us image"/>
+                            <img
+                                src="/images/me.png"
+                                className="w-full h-full rounded-3xl object-cover object-center"
+                                alt='Image'
+                            />
                         </div>
                     </div>
                 </div>

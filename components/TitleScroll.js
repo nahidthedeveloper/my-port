@@ -2,7 +2,7 @@
 import {useEffect, useRef} from "react";
 import {gsap} from "gsap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowRight, faLocationArrow} from "@fortawesome/free-solid-svg-icons";
+import {faLocationArrow} from "@fortawesome/free-solid-svg-icons";
 
 export default function TitleScroll() {
     const titleScrollRef = useRef(null);
@@ -55,13 +55,11 @@ export default function TitleScroll() {
             };
         }, titleScrollRef);
 
-        return () => {
-            ctx.revert();
-        };
+        return () => ctx.revert();
     }, []);
     return (
         <div className='w-full absolute bottom-10 left-0' ref={titleScrollRef}>
-            <div className='flex items-center'>
+            <div className='flex items-center text-white'>
                 <div className="firstTitle flex items-center">
                     <h1 className='name text-[10vw] font-exo2_bold text-nowrap'>Nahid Hasan</h1>
                     <FontAwesomeIcon icon={faLocationArrow} className='titleIcon h-[8vw] w-[8vw] mt-[2vw] mx-[3vw]'/>

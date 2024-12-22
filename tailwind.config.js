@@ -21,7 +21,7 @@ module.exports = {
                 'primary': '#178573'
             },
             backgroundImage: {
-                'men': "url('/images/men.jpg')",
+                'men': "url('/images/me.JPEG')",
             }
         },
     },
