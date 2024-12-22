@@ -2,17 +2,14 @@
 
 export default function About() {
     return (
-        <section className="mt-6 mb-24 relative xl:mr-0 lg:mr-5 mr-0">
+        <section className="my-40 relative xl:mr-0 lg:mr-5 mx-auto font-exo2_regular">
             <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
-                <div className="w-full justify-between items-center xl:gap-12 gap-10 grid lg:grid-cols-2 grid-cols-1">
-                    <div className="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex">
+                <div className="w-full justify-between xl:gap-12 gap-10 grid lg:grid-cols-2 grid-cols-1">
+                    <div className="w-full flex-col lg:items-start items-center gap-10 inline-flex">
                         <div className="w-full flex-col justify-center items-start gap-8 flex">
                             <div className="flex-col justify-start lg:items-start items-center gap-4 flex">
-                                <h6 className="text-gray-400 text-base font-normal leading-relaxed">About Us</h6>
+                                <h1 className="text-5xl font-bold font-exo2_bold">About Us</h1>
                                 <div className="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
-                                    <h2
-                                        className="text-indigo-700 text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
-                                        The Tale of Our Achievement Story</h2>
                                     <p
                                         className="text-gray-500 text-base font-normal leading-relaxed lg:text-start text-center">
                                         Our achievement story is a testament to teamwork and perseverance. Together,
@@ -75,7 +72,7 @@ export default function About() {
                     </div>
                     <div className="w-full lg:justify-start justify-center items-start flex">
                         <div
-                            className="w-full h-[80vw] md:h-[60vw] lg:w-[60vw] lg:h-[42vw]  rounded-3xl sm:border border-gray-200">
+                            className="w-full lg:w-[60vw] h-[80vw] lg:h-[579px] rounded-3xl sm:border border-gray-200">
                             <img className="w-full h-full rounded-3xl object-cover"
                                  src="https://pagedone.io/asset/uploads/1717742431.png" alt="about Us image"/>
                         </div>

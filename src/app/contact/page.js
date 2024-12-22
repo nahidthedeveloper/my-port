@@ -5,8 +5,8 @@ import {faEnvelope, faLocationDot, faPaperPlane, faPhone} from "@fortawesome/fre
 
 export default function Contact() {
     return (
-        <div className="mt-6 mb-32 max-w-screen-xl w-full px-4 mx mx-auto">
-            <div className="grid lg:grid-cols-2 items-center gap-14">
+        <div className="my-40 max-w-screen-xl w-full px-4 mx-auto">
+            <div className="grid lg:grid-cols-2 gap-14">
                 <div>
                     <h1 className="text-5xl font-bold font-exo2_bold">Get in Touch</h1>
                     <p className="text-base mt-4 leading-relaxed font-exo2_regular">Have some big idea or brand to
@@ -53,7 +53,7 @@ export default function Contact() {
                     </ul>
                 </div>
 
-                <div className="bg-gray-100 p-6 rounded-lg font-fira_regular">
+                <div className="p-6 rounded-lg font-fira_regular shadow-xl">
                     <form className="mt-8 space-y-4">
                         <input type='text' placeholder='Name'
                                className="w-full rounded-lg py-3 px-4 text-gray-800 text-sm outline-[#178573]"/>

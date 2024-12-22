@@ -39,8 +39,10 @@ export default function RootLayout({children}) {
         >
         <ReactLenis options={{duration: 2}} root>
             <Navbar/>
-            {children}
-            <Footer/>
+            <div className='mt-[96px]'>
+                {children}
+                <Footer/>
+            </div>
         </ReactLenis>
         </body>
         </html>
