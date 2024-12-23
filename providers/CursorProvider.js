@@ -117,8 +117,13 @@ export default function CursorProvider() {
     return (
         <div
             ref={cursorRef}
-            className="fixed top-0 w-12 h-12 border border-black rounded-full"
             style={{
+                width: "50px",
+                height: '50px',
+                border: "1px solid black",
+                borderRadius: "50%",
+                position: 'fixed',
+                top: 0,
                 zIndex: 10000,
                 opacity: 0,
                 transform: "translate(-50%, -50%)",
