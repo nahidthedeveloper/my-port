@@ -4,6 +4,8 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ReactLenis from "lenis/react";
 import {MouseWheelProvider} from "../../context/MouseWheelProvider";
+import React from "react";
+import CursorProvider from "../../providers/CursorProvider";
 
 const FiraCodeRegular = localFont({
     src: "./fonts/FiraCode-Regular.ttf",
@@ -40,6 +42,7 @@ export default function RootLayout({children}) {
         <MouseWheelProvider>
             <ReactLenis options={{duration: 2}} root>
                 <div className="snap-container snap-y snap-mandatory overflow-y-scroll h-screen">
+                    <CursorProvider/>
                     <Navbar/>
                     {children}
                     <Footer/>

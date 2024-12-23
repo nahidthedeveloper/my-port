@@ -1,0 +1,90 @@
+'use client'
+import {useEffect, useRef} from "react";
+import {gsap} from "gsap";
+
+export default function CursorProvider() {
+    const cursorRef = useRef(null);
+
+    useEffect(() => {
+        const container = document.querySelector(".snap-container");
+        const pos = {x: window.innerWidth / 2, y: window.innerHeight / 2};
+        const mouse = {x: pos.x, y: pos.y}; // Mouse position
+        let lastSpeed = 0; // Speed at the last frame
+        let skewX = 0; // Current skew value
+
+        // GSAP Ticker for continuous updates
+        const ticker = gsap.ticker.add(() => {
+            const prevX = pos.x;
+            const prevY = pos.y;
+
+            pos.x += (mouse.x - pos.x) * 0.15; // Smooth following
+            pos.y += (mouse.y - pos.y) * 0.15;
+
+            const dx = mouse.x - pos.x;
+            const dy = mouse.y - pos.y;
+            const distance = Math.sqrt(dx * dx + dy * dy); // Distance between cursor and mouse
+            const speed = Math.sqrt((pos.x - prevX) ** 2 + (pos.y - prevY) ** 2); // Current speed
+            const reverse = speed < lastSpeed; // Reverse motion check
+
+            // Smooth skew transition
+            const targetSkew = reverse ? -distance * 0.2 : distance * 0.2;
+            skewX += (targetSkew - skewX) * 0.1; // Eased skew transition
+
+            gsap.set(cursorRef.current, {
+                x: pos.x,
+                y: pos.y,
+                skewX: skewX,
+                scale: 1, // Uniform scale
+            });
+
+            // Update last speed
+            lastSpeed = speed;
+        });
+
+        // Add mousemove and mouseleave listeners
+        const handleMouseMove = (event) => {
+            mouse.x = event.clientX;
+            mouse.y = event.clientY;
+            gsap.to(cursorRef.current, {
+                autoAlpha: 1,
+                duration: 0.5,
+                ease: "back.out",
+            });
+        };
+
+        const handleMouseLeave = () => {
+            gsap.to(cursorRef.current, {
+                autoAlpha: 0,
+                duration: 0.5,
+                ease: "back.out",
+            });
+        };
+
+        if (container) {
+            container.addEventListener("mousemove", handleMouseMove);
+            container.addEventListener("mouseleave", handleMouseLeave);
+        }
+
+        // Cleanup on unmount
+        return () => {
+            gsap.ticker.remove(ticker);
+            if (container) {
+                container.removeEventListener("mousemove", handleMouseMove);
+                container.removeEventListener("mouseleave", handleMouseLeave);
+            }
+        };
+    }, []);
+
+    return (
+        <div
+            ref={cursorRef}
+            className="fixed top-0 w-12 h-12 border border-black rounded-full"
+            style={{
+                zIndex: 10000,
+                opacity: 0,
+                transform: "translate(-50%, -50%)",
+                transformOrigin: "center",
+            }}
+        ></div>
+    );
+}
