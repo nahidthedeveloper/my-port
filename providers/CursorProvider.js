@@ -60,9 +60,47 @@ export default function CursorProvider() {
             });
         };
 
+        const handleMouseClick = (event) => {
+            const ripple = document.createElement("div");
+            ripple.style.position = "fixed";
+            ripple.style.width = "20px";
+            ripple.style.height = "20px";
+            ripple.style.borderRadius = "50%";
+            ripple.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+            ripple.style.pointerEvents = "none";
+            ripple.style.left = `${event.clientX}px`;
+            ripple.style.top = `${event.clientY}px`;
+            ripple.style.transform = "translate(-50%, -50%)";
+
+            document.body.appendChild(ripple);
+
+            // Animate the ripple effect
+            gsap.fromTo(
+                ripple,
+                {scale: 0, opacity: 1},
+                {
+                    scale: 10,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    onComplete: () => {
+                        ripple.remove(); // Clean up after animation
+                    },
+                }
+            );
+
+            // Animate cursor bounce
+            gsap.from(cursorRef.current, {
+                scale: 0.8,
+                duration: 0.5,
+                ease: "back.out",
+            });
+        };
+
         if (container) {
             container.addEventListener("mousemove", handleMouseMove);
             container.addEventListener("mouseleave", handleMouseLeave);
+            container.addEventListener("click", handleMouseClick);
         }
 
         // Cleanup on unmount
@@ -71,6 +109,7 @@ export default function CursorProvider() {
             if (container) {
                 container.removeEventListener("mousemove", handleMouseMove);
                 container.removeEventListener("mouseleave", handleMouseLeave);
+                container.removeEventListener("click", handleMouseClick);
             }
         };
     }, []);
@@ -84,6 +123,7 @@ export default function CursorProvider() {
                 opacity: 0,
                 transform: "translate(-50%, -50%)",
                 transformOrigin: "center",
+                pointerEvents: "none"
             }}
         ></div>
     );
