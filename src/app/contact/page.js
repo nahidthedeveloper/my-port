@@ -1,11 +1,16 @@
+'use client'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebookF, faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import Link from "next/link";
 import {faEnvelope, faLocationDot, faPaperPlane, faPhone} from "@fortawesome/free-solid-svg-icons";
+import {useEffect} from "react";
 
 export default function Contact() {
+    useEffect(() => {
+        document.title = 'Nahid Port. | Contact'
+    }, [])
     return (
-        <div className="my-40 max-w-screen-xl w-full px-4 mx-auto">
+        <div className="snap-start pt-[96px] mb-40 max-w-screen-xl w-full px-4 mx-auto">
             <div className="grid lg:grid-cols-2 gap-14">
                 <div>
                     <h1 className="text-5xl font-bold font-exo2_bold">Get in Touch</h1>

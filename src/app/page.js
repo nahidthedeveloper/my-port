@@ -2,15 +2,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import {useEffect} from "react";
 
 const TitleScroll = dynamic(() => import("../../components/TitleScroll"), {ssr: false});
 const CircleText = dynamic(() => import("../../components/CircleText"), {ssr: false});
 
 export default function Home() {
+    useEffect(() => {
+        document.title = 'Nahid Port. | Home'
+    }, [])
 
     return (
         <div>
-            <section className="max-w-screen-xl w-full px-4 m-auto flex flex-col lg:flex-row justify-between">
+            <section id='section1'
+                className="snap-start pt-[96px] max-w-screen-xl w-full lg:min-h-screen px-4 m-auto flex flex-col lg:flex-row justify-between">
                 <div className="text-center lg:text-left">
                     <h1 className="text-[8vw] md:text-[6vw] lg:text-[5vw] font-exo2_bold mt-16 lg:mt-32 leading-[1]">
                         Hi, my <br/> <span className="whitespace-nowrap">name is Nahid.</span>
@@ -39,8 +44,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section
-                className="min-h-screen w-full flex justify-center items-center relative overflow-x-hidden bg-men bg-cover bg-center bg-no-repeat"
+            <section id='section2'
+                className="snap-start min-h-screen w-full flex justify-center items-center relative overflow-x-hidden bg-men bg-cover bg-center bg-no-repeat"
             >
                 <CircleText/>
                 <TitleScroll/>

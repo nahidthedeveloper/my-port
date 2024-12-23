@@ -15,10 +15,11 @@ export default function CircleText() {
                 rotation: 360,
                 duration: 5,
                 scrollTrigger: {
-                    trigger: imageRef.current,
+                    trigger: '#section2',
                     start: "top center",       // Start when the top of the element reaches the center of the viewport
                     end: "bottom top",         // End when the bottom of the element reaches the top of the viewport
                     scrub: true,               // Smoothly link the animation to scroll
+                    // markers: true
                 },
             });
         }, imageRef);
@@ -27,7 +28,7 @@ export default function CircleText() {
     }, []);
 
     return (
-        <div className="flex items-center justify-center absolute top-0 left-0">
+        <div className="flex items-center justify-center absolute top-20 left-0">
             <img
                 src="/images/circleTitle.svg"
                 alt="circleTitle"

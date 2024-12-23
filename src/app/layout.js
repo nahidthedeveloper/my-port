@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ReactLenis from "lenis/react";
+import {MouseWheelProvider} from "../../context/MouseWheelProvider";
 
 const FiraCodeRegular = localFont({
     src: "./fonts/FiraCode-Regular.ttf",
@@ -20,7 +21,6 @@ const Exo2Bold = localFont({
     src: "./fonts/Exo2-Bold.ttf",
     variable: "--font-exo2-bold",
 });
-
 const AntonRegular = localFont({
     src: "./fonts/Anton-Regular.ttf",
     variable: "--font-anton-regular",
@@ -35,15 +35,17 @@ export default function RootLayout({children}) {
     return (
         <html lang="en">
         <body
-            className={`${FiraCodeRegular.variable} ${FiraCodeBold.variable} ${Exo2Regular.variable} ${Exo2Bold.variable} ${AntonRegular.variable} bg-[#f5eee5] w-full min-h-screen`}
+            className={`${FiraCodeRegular.variable} ${FiraCodeBold.variable} ${Exo2Regular.variable} ${Exo2Bold.variable} ${AntonRegular.variable} bg-[#f5eee5] w-full`}
         >
-        <ReactLenis options={{duration: 2}} root>
-            <Navbar/>
-            <div className='mt-[96px]'>
-                {children}
-                <Footer/>
-            </div>
-        </ReactLenis>
+        <MouseWheelProvider>
+            <ReactLenis options={{duration: 2}} root>
+                <div className="snap-container snap-y snap-mandatory overflow-y-scroll h-screen">
+                    <Navbar/>
+                    {children}
+                    <Footer/>
+                </div>
+            </ReactLenis>
+        </MouseWheelProvider>
         </body>
         </html>
     );

@@ -14,7 +14,7 @@ export default function Footer() {
     }, []);
 
     return (
-        <footer className='font-exo2_regular'>
+        <footer className='font-exo2_regular snap-end'>
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
@@ -32,9 +32,13 @@ export default function Footer() {
                                     <Link target='_blank' href="https://nextjs.org/"
                                           className="hover:underline">Next.js</Link>
                                 </li>
-                                <li>
+                                <li className="mb-4">
                                     <Link target='_blank' href="https://tailwindcss.com/" className="hover:underline">Tailwind
                                         CSS</Link>
+                                </li>
+                                <li>
+                                    <Link target='_blank' href="https://gsap.com/"
+                                          className="hover:underline">GSAP</Link>
                                 </li>
                             </ul>
                         </div>
