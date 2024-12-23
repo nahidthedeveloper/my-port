@@ -9,9 +9,11 @@ export const MouseWheelProvider = ({children}) => {
     useEffect(() => {
         const handleWheel = (e) => {
             e.preventDefault();
+
             const scrollContainer = document.querySelector(".snap-container");
             if (scrollContainer) {
                 const scrollAmount = e.deltaY < 0 ? -100 : 100;
+
                 scrollContainer.scrollBy({
                     top: scrollAmount,
                     behavior: "smooth",
