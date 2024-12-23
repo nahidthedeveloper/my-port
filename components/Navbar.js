@@ -109,8 +109,8 @@ export default function Navbar() {
 
 
     return (
-        <div className="w-full fixed top-0 left-0" style={{zIndex: '9999'}}>
-            <div className="mx-auto w-full max-w-screen-xl pl-2 pr-4 py-6 flex justify-between items-center">
+        <div className="w-full sticky top-0" style={{zIndex: '9999'}}>
+            <div className="mx-auto w-full max-w-screen-xl px-4 py-6 flex justify-between items-center">
                 <Link href="/">
                     <h2 className="uppercase text-4xl font-anton_regular text-[#178573]" ref={appName}>
                         Nahid Port.

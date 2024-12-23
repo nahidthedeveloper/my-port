@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import {useEffect, useRef} from "react";
 import MagneticGSAP from "../../components/GSAP/MagneticGSAP";
 import {gsap} from "gsap";
+import CommonPageLayout from "../../layout/CommonPageLayout";
 
 const TitleScroll = dynamic(() => import("../../components/TitleScroll"), {ssr: false});
 const CircleText = dynamic(() => import("../../components/CircleText"), {ssr: false});
@@ -45,9 +46,8 @@ export default function Home() {
 
     return (
         <div>
-            <div className='snap-start overflow-hidden w-full h-full'>
-                <section
-                    className=" pt-[96px] max-w-screen-xl w-full lg:min-h-screen px-4 m-auto flex flex-col lg:flex-row justify-between">
+            <CommonPageLayout>
+                <section className="flex flex-col lg:flex-row justify-between">
                     <div ref={section1LeftRef} className="text-center lg:text-left">
                         <h1
                             className="text-[8vw] md:text-[6vw] lg:text-[5vw] font-exo2_bold mt-16 lg:mt-32 leading-[1]">
@@ -79,17 +79,16 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-            </div>
+            </CommonPageLayout>
 
             <section id='section2'
-                     className="snap-start min-h-screen w-full flex justify-center items-center relative overflow-x-hidden bg-men bg-cover bg-center bg-no-repeat"
+                     className="snap-start min-h-screen w-full flex justify-center items-center relative bg-men bg-cover bg-center bg-no-repeat"
             >
-                <CircleText/>
                 <TitleScroll/>
             </section>
 
-            <section id='section3' className='snap-start min-h-screen w-full flex justify-center items-center'>
-                This is section 3
+            <section id='section3' className='snap-start min-h-screen w-full h-full flex justify-center items-center'>
+                <CircleText/>
             </section>
         </div>
     );

@@ -1,13 +1,13 @@
 'use client';
-
 import {useEffect} from "react";
+import CommonPageLayout from "../../../layout/CommonPageLayout";
 
 export default function About() {
     useEffect(() => {
         document.title = 'Nahid Port. | About'
     }, [])
     return (
-        <div className="snap-start pt-[96px] mb-40 max-w-screen-xl w-full px-4 mx-auto">
+        <CommonPageLayout>
             <div className="grid w-full gap-10 lg:grid-cols-2 font-exo2_regular">
                 {/* Left Section */}
                 <div className="flex flex-col items-center gap-10 lg:items-start">
@@ -57,7 +57,7 @@ export default function About() {
                 </div>
 
             </div>
-        </div>
+        </CommonPageLayout>
     );
 }
 

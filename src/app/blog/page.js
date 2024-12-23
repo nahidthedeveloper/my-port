@@ -1,9 +1,10 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClock} from "@fortawesome/free-solid-svg-icons";
+import CommonPageLayout from "../../../layout/CommonPageLayout";
 
 export default function Blog() {
     return (
-        <div className="snap-start pt-[96px] max-w-screen-xl w-full lg:min-h-screen px-4 m-auto ">
+        <CommonPageLayout>
             <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
                 {/*card one*/}
                 <div className="rounded overflow-hidden shadow-lg">
@@ -139,7 +140,7 @@ export default function Blog() {
                     </div>
                 </div>
             </div>
-        </div>
+        </CommonPageLayout>
 
     )
 }

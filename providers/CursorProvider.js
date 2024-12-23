@@ -6,7 +6,7 @@ export default function CursorProvider() {
     const cursorRef = useRef(null);
 
     useEffect(() => {
-        const container = document.querySelector(".snap-container");
+        const container = document.body;
         const pos = {x: window.innerWidth / 2, y: window.innerHeight / 2};
         const mouse = {x: pos.x, y: pos.y}; // Mouse position
         let lastSpeed = 0; // Speed at the last frame
@@ -84,7 +84,7 @@ export default function CursorProvider() {
                     duration: 1,
                     ease: "power3.out",
                     onComplete: () => {
-                        ripple.remove(); // Clean up after animation
+                        ripple.remove();
                     },
                 }
             );

@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ReactLenis from "lenis/react";
-import {MouseWheelProvider} from "../../context/MouseWheelProvider";
 import React from "react";
 import CursorProvider from "../../providers/CursorProvider";
 
@@ -37,18 +36,15 @@ export default function RootLayout({children}) {
     return (
         <html lang="en">
         <body
-            className={`${FiraCodeRegular.variable} ${FiraCodeBold.variable} ${Exo2Regular.variable} ${Exo2Bold.variable} ${AntonRegular.variable} bg-[#f5eee5] w-full`}
-        >
-        <MouseWheelProvider>
-            <ReactLenis options={{duration: 2}} root>
-                <div className="snap-container snap-y snap-mandatory overflow-y-scroll h-screen">
-                    <CursorProvider/>
-                    <Navbar/>
-                    {children}
-                    <Footer/>
-                </div>
-            </ReactLenis>
-        </MouseWheelProvider>
+            className={`${FiraCodeRegular.variable} ${FiraCodeBold.variable} ${Exo2Regular.variable} ${Exo2Bold.variable} ${AntonRegular.variable} bg-[#f5eee5] w-full`}>
+        <ReactLenis options={{duration: 2}} root>
+            <div className={'overflow-x-hidden'}>
+                <CursorProvider/>
+                <Navbar/>
+                {children}
+                <Footer/>
+            </div>
+        </ReactLenis>
         </body>
         </html>
     );

@@ -1,7 +1,9 @@
-export default function Project(){
-    return(
-        <div className="snap-start pt-[96px] max-w-screen-xl w-full min-h-screen px-4 m-auto">
+import CommonPageLayout from "../../../layout/CommonPageLayout";
+
+export default function Project() {
+    return (
+        <CommonPageLayout>
             This is Project Page
-        </div>
+        </CommonPageLayout>
     )
 }

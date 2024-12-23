@@ -8,18 +8,18 @@ export default function CircleText() {
     const imageRef = useRef(null);
 
     useEffect(() => {
-        const container = document.querySelector('.snap-container');
-        const section2 = document.querySelector('#section2');
+        const section3 = document.querySelector('#section3');
 
         gsap.to(imageRef.current, {
             rotation: 360,
             scrollTrigger: {
-                trigger: section2,
-                scroller: container,
-                start: 'top 60%',         // Animation starts when the top of the image reaches the center of the viewport
-                end: 'top top',           // Animation ends when the bottom of the image reaches the top of the viewport
-                scrub: 1,                    // Smooth linking of scroll progress with animation (1 for smooth)
-                // markers: true
+                trigger: section3,
+                scroller: document.body,
+                start: 'top top',
+                end: 'top -100%',
+                scrub: 1,
+                markers: true,
+                pin: true,
             },
         });
 
@@ -29,11 +29,11 @@ export default function CircleText() {
     }, []);
 
     return (
-        <div className="flex items-center justify-center absolute top-20 left-0">
+        <div className="flex items-center justify-center">
             <img
                 src="/images/circleTitle.svg"
                 alt="circleTitle"
-                className="w-[15vw] h-[15vw]"
+                className="w-[50vw] h-[50vw]"
                 ref={imageRef}
             />
         </div>
