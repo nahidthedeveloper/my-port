@@ -10,6 +10,7 @@ import {faXmark} from "@fortawesome/free-solid-svg-icons";
 const links = [
     {name: 'Home', path: '/'},
     {name: 'About', path: '/about'},
+    {name: 'Project', path: '/project'},
     {name: 'Blog', path: '/blog'},
     {name: 'Contact', path: '/contact'},
 ];

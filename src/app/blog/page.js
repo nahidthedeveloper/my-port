@@ -2,7 +2,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClock} from "@fortawesome/free-solid-svg-icons";
 
 export default function Blog() {
-    return (<div className="snap-start pt-[96px] max-w-screen-xl w-full lg:min-h-screen px-4 m-auto ">
+    return (
+        <div className="snap-start pt-[96px] max-w-screen-xl w-full lg:min-h-screen px-4 m-auto ">
             <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
                 {/*card one*/}
                 <div className="rounded overflow-hidden shadow-lg">

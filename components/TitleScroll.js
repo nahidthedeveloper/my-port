@@ -58,7 +58,7 @@ export default function TitleScroll() {
         return () => ctx.revert();
     }, []);
     return (
-        <div className='w-full absolute bottom-10 left-0' ref={titleScrollRef}>
+        <div className='w-full absolute bottom-10 left-0' ref={titleScrollRef} id='titleScroll'>
             <div className='flex items-center text-white'>
                 <div className="firstTitle flex items-center">
                     <h1 className='name text-[10vw] font-exo2_bold text-nowrap'>Nahid Hasan</h1>

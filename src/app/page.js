@@ -14,6 +14,7 @@ export default function Home() {
     const section1RightRef = useRef()
     const section1Timeline = useRef()
 
+
     useEffect(() => {
         document.title = 'Nahid Port. | Home'
         const ctx = gsap.context(() => {
@@ -37,6 +38,7 @@ export default function Home() {
 
         })
         section1Timeline.current.play();
+
         return () => ctx.revert()
     }, [])
 
@@ -81,6 +83,10 @@ export default function Home() {
             >
                 <CircleText/>
                 <TitleScroll/>
+            </section>
+
+            <section id='section3' className='snap-start min-h-screen w-full flex justify-center items-center'>
+                This is section 3
             </section>
         </div>
     );
