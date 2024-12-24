@@ -3,14 +3,14 @@ import React, {createContext, useContext, useEffect} from "react";
 
 const WheelContext = createContext(null);
 
-export const useWheel = () => useContext(WheelContext);
+const useWheel = () => useContext(WheelContext);
 
-export const MouseWheelProvider = ({children}) => {
+const MouseWheelContext = ({children}) => {
     useEffect(() => {
         const handleWheel = (e) => {
             e.preventDefault();
 
-            const scrollContainer = document.querySelector(".snap-container");
+            const scrollContainer = document.querySelector("body");
             if (scrollContainer) {
                 const scrollAmount = e.deltaY < 0 ? -100 : 100;
 
@@ -34,3 +34,4 @@ export const MouseWheelProvider = ({children}) => {
         </WheelContext.Provider>
     );
 };
+export {MouseWheelContext, useWheel}

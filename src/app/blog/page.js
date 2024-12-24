@@ -1,6 +1,6 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClock} from "@fortawesome/free-solid-svg-icons";
-import CommonPageLayout from "../../../layout/CommonPageLayout";
+import CommonPageLayout from "@/layout/CommonPageLayout";
 
 export default function Blog() {
     return (
@@ -21,13 +21,13 @@ export default function Blog() {
                         </a>
                         <a href="">
                             <div
-                                className="absolute bottom-0 left-0 bg-indigo-600 px-4 py-2 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                                className="absolute bottom-0 left-0 bg-primary px-4 py-2 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
                                 Photos
                             </div>
                         </a>
                         <a href="">
                             <div
-                                className="text-sm absolute top-0 right-0 bg-indigo-600 px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                                className="text-sm absolute top-0 right-0 bg-primary px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
                                 <span className="font-bold">27</span>
                                 <small>March</small>
                             </div>
@@ -43,10 +43,10 @@ export default function Blog() {
                         <p className="text-gray-500 text-sm">The city that never sleeps</p>
                     </div>
                     <div className="px-6 py-4 flex flex-row items-center">
-        <span className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center">
-          <FontAwesomeIcon icon={faClock} className='w-3 h-3'/>
-          <span className="ml-1">6 mins ago</span>
-        </span>
+                        <span className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center">
+                          <FontAwesomeIcon icon={faClock} className='w-3 h-3'/>
+                          <span className="ml-1">6 mins ago</span>
+                        </span>
                     </div>
                 </div>
                 {/*card two*/}
@@ -64,13 +64,13 @@ export default function Blog() {
                         </a>
                         <a href="#!">
                             <div
-                                className="absolute bottom-0 left-0 bg-indigo-600 px-4 py-2 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                                className="absolute bottom-0 left-0 bg-primary px-4 py-2 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
                                 Photos
                             </div>
                         </a>
                         <a href="!#">
                             <div
-                                className="text-sm absolute top-0 right-0 bg-indigo-600 px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                                className="text-sm absolute top-0 right-0 bg-primary px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
                                 <span className="font-bold">20</span>
                                 <small>March</small>
                             </div>
@@ -88,10 +88,11 @@ export default function Blog() {
                         </p>
                     </div>
                     <div className="px-6 py-4 flex flex-row items-center">
-        <span className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row justify-between items-center">
-         <FontAwesomeIcon icon={faClock} className='w-3 h-3'/>
-          <span className="ml-1">3 mins read</span>
-        </span>
+                        <span
+                            className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row justify-between items-center">
+                         <FontAwesomeIcon icon={faClock} className='w-3 h-3'/>
+                          <span className="ml-1">3 mins read</span>
+                        </span>
                     </div>
                 </div>
                 {/*card three */}
@@ -109,13 +110,13 @@ export default function Blog() {
                         </a>
                         <a href="#!">
                             <div
-                                className="absolute bottom-0 left-0 bg-indigo-600 px-4 py-2 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                                className="absolute bottom-0 left-0 bg-primary px-4 py-2 text-white text-sm hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
                                 Photos
                             </div>
                         </a>
                         <a href="!#">
                             <div
-                                className="text-sm absolute top-0 right-0 bg-indigo-600 px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                                className="text-sm absolute top-0 right-0 bg-primary px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
                                 <span className="font-bold">15</span>
                                 <small>April</small>
                             </div>
@@ -133,10 +134,11 @@ export default function Blog() {
                         </p>
                     </div>
                     <div className="px-6 py-4 flex flex-row items-center">
-        <span className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row justify-between items-center">
-          <FontAwesomeIcon icon={faClock} className='w-3 h-3'/>
-          <span className="ml-1">6 mins read</span>
-        </span>
+                        <span
+                            className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row justify-between items-center">
+                          <FontAwesomeIcon icon={faClock} className='w-3 h-3'/>
+                          <span className="ml-1">6 mins read</span>
+                        </span>
                     </div>
                 </div>
             </div>

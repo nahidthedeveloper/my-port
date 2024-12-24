@@ -4,7 +4,7 @@ import {faFacebookF, faGithub, faLinkedin} from '@fortawesome/free-brands-svg-ic
 import Link from "next/link";
 import {faEnvelope, faLocationDot, faPaperPlane, faPhone} from "@fortawesome/free-solid-svg-icons";
 import {useEffect} from "react";
-import CommonPageLayout from "../../../layout/CommonPageLayout";
+import CommonPageLayout from "@/layout/CommonPageLayout";
 
 export default function Contact() {
     useEffect(() => {

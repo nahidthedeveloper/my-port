@@ -1,6 +1,6 @@
 'use client';
 import {useEffect} from "react";
-import CommonPageLayout from "../../../layout/CommonPageLayout";
+import CommonPageLayout from "@/layout/CommonPageLayout";
 
 export default function About() {
     useEffect(() => {

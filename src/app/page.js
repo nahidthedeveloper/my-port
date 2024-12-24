@@ -3,12 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import {useEffect, useRef} from "react";
-import MagneticGSAP from "../../components/GSAP/MagneticGSAP";
+import MagneticGSAP from "@/components/GSAP/MagneticGSAP";
 import {gsap} from "gsap";
 
 
-const TitleScroll = dynamic(() => import("../../components/TitleScroll"), {ssr: false});
-const CircleText = dynamic(() => import("../../components/CircleText"), {ssr: false});
+const TitleScroll = dynamic(() => import("@/components/TitleScroll"), {ssr: false});
+const CircleText = dynamic(() => import("@/components/CircleText"), {ssr: false});
 
 export default function Home() {
     const mainRef = useRef();

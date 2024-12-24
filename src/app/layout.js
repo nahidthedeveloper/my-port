@@ -1,10 +1,11 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import ReactLenis from "lenis/react";
 import React from "react";
-import CursorProvider from "../../providers/CursorProvider";
+import CursorProvider from "@/providers/CursorProvider";
+import GlobalTransitionLayout from "@/layout/GlobalTransitionLayout";
 
 const FiraCodeRegular = localFont({
     src: "./fonts/FiraCode-Regular.ttf",
@@ -41,11 +42,14 @@ export default function RootLayout({children}) {
             <div className={'overflow-x-hidden'}>
                 <CursorProvider/>
                 <Navbar/>
-                {children}
+                <GlobalTransitionLayout>
+                    {children}
+                </GlobalTransitionLayout>
                 <Footer/>
             </div>
         </ReactLenis>
         </body>
         </html>
-    );
+    )
+        ;
 }
