@@ -4,9 +4,7 @@ import gsap from "gsap"
 
 const TransitionContext = createContext({})
 
-const useTransitionContext = () => useContext(TransitionContext)
-
-const GlobalTransitionContextProvider = ({children}) => {
+const TransitionProvider = ({children}) => {
     const [timeline, setTimeline] = useState(() =>
         gsap.timeline({paused: true})
     )
@@ -23,4 +21,4 @@ const GlobalTransitionContextProvider = ({children}) => {
     )
 }
 
-export {useTransitionContext, GlobalTransitionContextProvider}
+export {TransitionContext, TransitionProvider}

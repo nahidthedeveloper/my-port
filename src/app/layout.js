@@ -5,7 +5,8 @@ import Footer from "@/components/Footer";
 import ReactLenis from "lenis/react";
 import React from "react";
 import CursorProvider from "@/providers/CursorProvider";
-import GlobalTransitionLayout from "@/layout/GlobalTransitionLayout";
+import {TransitionProvider} from "@/context/TransitionProvider";
+import TransitionLayout from "@/layout/TransitionLayout";
 
 const FiraCodeRegular = localFont({
     src: "./fonts/FiraCode-Regular.ttf",
@@ -39,14 +40,16 @@ export default function RootLayout({children}) {
         <body
             className={`${FiraCodeRegular.variable} ${FiraCodeBold.variable} ${Exo2Regular.variable} ${Exo2Bold.variable} ${AntonRegular.variable} bg-[#f5eee5] w-full`}>
         <ReactLenis options={{duration: 2}} root>
-            <div className={'overflow-x-hidden'}>
-                <CursorProvider/>
-                <Navbar/>
-                <GlobalTransitionLayout>
-                    {children}
-                </GlobalTransitionLayout>
-                <Footer/>
-            </div>
+            <TransitionProvider>
+                <TransitionLayout>
+                    <div className={'overflow-x-hidden'}>
+                        <CursorProvider/>
+                        <Navbar/>
+                        {children}
+                        <Footer/>
+                    </div>
+                </TransitionLayout>
+            </TransitionProvider>
         </ReactLenis>
         </body>
         </html>

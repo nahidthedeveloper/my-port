@@ -1,14 +1,25 @@
 'use client';
-import {useEffect} from "react";
+import {useContext, useEffect, useRef} from "react";
 import CommonPageLayout from "@/layout/CommonPageLayout";
+import {useGSAP} from "@gsap/react";
+import gsap from "gsap";
+import {TransitionContext} from "@/context/TransitionProvider";
 
 export default function About() {
     useEffect(() => {
         document.title = 'Nahid Port. | About'
     }, [])
+
+    const container = useRef(null);
+    const {timeline} = useContext(TransitionContext);
+
+    useGSAP(() => {
+        timeline.add(gsap.from(container.current, {opacity: 0, duration:2 }))
+    }, {scope: container})
+
     return (
         <CommonPageLayout>
-            <div className="grid w-full gap-10 lg:grid-cols-2 font-exo2_regular">
+            <div className="grid w-full gap-10 lg:grid-cols-2 font-exo2_regular" ref={container}>
                 {/* Left Section */}
                 <div className="flex flex-col items-center gap-10 lg:items-start">
                     <div className="flex flex-col w-full gap-8">

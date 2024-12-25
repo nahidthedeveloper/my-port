@@ -1,30 +1,26 @@
 'use client'
-import {useState} from "react"
+import {useState, useContext} from "react"
 import gsap from "gsap";
 import {useGSAP} from "@gsap/react";
-import {useTransitionContext} from "@/context/GlobalTransitionContextProvider";
+import {TransitionContext} from "@/context/TransitionProvider";
 
 gsap.registerPlugin(useGSAP);
 
-export default function GlobalTransitionLayout({children}) {
+export default function TransitionLayout({children}) {
     const [displayChildren, setDisplayChildren] = useState(children)
-    const {timeline} = useTransitionContext();
+    const {timeline} = useContext(TransitionContext)
     const {contextSafe} = useGSAP();
 
     const exit = contextSafe(() => {
-        timeline?.play().then(() => {
+        timeline.play().then(() => {
             window.scrollTo(0, 0)
             setDisplayChildren(children);
             timeline.pause().clear();
         })
     })
 
-    console.log(children.key)
-
     useGSAP(() => {
-        // if (children.key !== displayChildren.key) {
         exit();
-        // }
 
     }, [children])
 
