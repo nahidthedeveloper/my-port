@@ -5,48 +5,64 @@ import dynamic from "next/dynamic";
 import {useEffect, useRef} from "react";
 import MagneticGSAP from "@/components/GSAP/MagneticGSAP";
 import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 
 const TitleScroll = dynamic(() => import("@/components/TitleScroll"), {ssr: false});
 const CircleText = dynamic(() => import("@/components/CircleText"), {ssr: false});
 
 export default function Home() {
     const mainRef = useRef();
-    const section1LeftRef = useRef()
-    const section1RightRef = useRef()
-    const section1Timeline = useRef()
-
+    const section1Timeline = useRef();
 
     useEffect(() => {
-        document.title = 'Nahid Port. | Home'
-        const ctx = gsap.context(() => {
-            section1Timeline.current = gsap.timeline()
+        document.title = 'Nahid Port. | Home';
+        gsap.registerPlugin(ScrollTrigger);
 
-            section1Timeline.current.from(section1LeftRef.current, {
+        const ctx = gsap.context(() => {
+            section1Timeline.current = gsap.timeline();
+
+            const main = mainRef.current;
+
+            section1Timeline.current.from(main.querySelector('#section1 .left'), {
                 x: -2000,
                 opacity: 0,
                 duration: 0.5,
                 ease: 'power1.out',
-            }, 'a')
+            }, 'a');
 
-            section1Timeline.current.from(section1RightRef.current, {
+            section1Timeline.current.from(main.querySelector('#section1 .right'), {
                 x: 2000,
                 opacity: 0,
                 duration: 0.5,
                 ease: 'power1.out',
-            }, 'a')
+            }, 'a');
 
-        })
-        return () => ctx.revert()
-    }, [])
+            gsap.fromTo(
+                "#section2",
+                {opacity: 0, y: 400},
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.5,
+                    scrollTrigger: {
+                        trigger: "#section2",
+                        start: "top 75%",
+                        end: "top 60%",
+                        scrub: 1,
+                    }
+                }
+            );
+        });
 
+        return () => ctx.revert();
+    }, []);
 
     return (
         <div ref={mainRef}>
             <section id='section1'
                      className="max-w-screen-xl w-full lg:min-h-screen pt-[3vw] px-4 mx-auto flex flex-col lg:flex-row justify-between">
-                <div ref={section1LeftRef} className="text-center lg:text-left">
-                    <h1
-                        className="text-[8vw] md:text-[6vw] lg:text-[5vw] font-exo2_bold mt-16 lg:mt-32 leading-[1]">
+                <div className="left text-center lg:text-left">
+                    <h1 className="text-[8vw] md:text-[6vw] lg:text-[5vw] font-exo2_bold mt-16 lg:mt-32 leading-[1]">
                         Hi, my <br/> <span className="whitespace-nowrap">name is Nahid.</span>
                     </h1>
 
@@ -60,7 +76,7 @@ export default function Home() {
                         </Link>
                     </div>
                 </div>
-                <div ref={section1RightRef} className="mt-8 lg:mt-0 flex justify-center lg:justify-end">
+                <div className="right mt-8 lg:mt-0 flex justify-center lg:justify-end">
                     <div className="relative w-full md:w-[50vw] lg:w-[40vw]">
                         <MagneticGSAP>
                             <Image
@@ -78,6 +94,7 @@ export default function Home() {
 
             <section id='section2'
                      className="snap-start min-h-screen w-full flex justify-center items-center relative bg-men bg-cover bg-center bg-no-repeat"
+                     style={{scrollSnapAlign: "start"}} // Snap this section to the top
             >
                 <TitleScroll/>
             </section>

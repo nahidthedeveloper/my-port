@@ -1,8 +1,13 @@
 'use client';
 import CommonPageLayout from "@/layout/CommonPageLayout";
+import {useEffect} from "react";
 
 
 export default function About() {
+    useEffect(() => {
+        document.title = 'Nahid Port. | About'
+    }, [])
+
     return (
         <div>
             <CommonPageLayout>
