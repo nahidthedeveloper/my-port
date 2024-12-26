@@ -6,7 +6,6 @@ import {useEffect, useRef} from "react";
 import MagneticGSAP from "@/components/GSAP/MagneticGSAP";
 import {gsap} from "gsap";
 
-
 const TitleScroll = dynamic(() => import("@/components/TitleScroll"), {ssr: false});
 const CircleText = dynamic(() => import("@/components/CircleText"), {ssr: false});
 
@@ -25,22 +24,18 @@ export default function Home() {
             section1Timeline.current.from(section1LeftRef.current, {
                 x: -2000,
                 opacity: 0,
-                duration: 1,
-                delay: 1,
+                duration: 0.5,
                 ease: 'power1.out',
             }, 'a')
 
             section1Timeline.current.from(section1RightRef.current, {
                 x: 2000,
                 opacity: 0,
-                duration: 1,
-                delay: 1,
+                duration: 0.5,
                 ease: 'power1.out',
             }, 'a')
 
         })
-        section1Timeline.current.play();
-
         return () => ctx.revert()
     }, [])
 

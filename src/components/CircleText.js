@@ -18,7 +18,7 @@ export default function CircleText() {
                 start: 'top top',
                 end: 'top -100%',
                 scrub: 1,
-                markers: true,
+                // markers: true,
                 pin: true,
             },
         });
