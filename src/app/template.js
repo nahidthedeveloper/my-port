@@ -29,7 +29,7 @@ export default function Template({children}) {
                     transformOrigin: 'top',
                     duration: 1,
                     ease: 'power2.inOut',
-                }, '+=0.5')
+                })
                 .eventCallback('onComplete', () => {
                     setIsRendered(true);
                 });
