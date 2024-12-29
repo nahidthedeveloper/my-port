@@ -8,7 +8,6 @@ import {useGSAP} from "@gsap/react";
 import {gsap} from "gsap"
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
-
 const TitleScroll = dynamic(() => import("@/components/TitleScroll"), {ssr: false});
 const CircleText = dynamic(() => import("@/components/CircleText"), {ssr: false});
 
@@ -22,21 +21,21 @@ export default function Home() {
 
             section1Timeline.current = gsap.timeline();
 
-            section1Timeline.current.from(mainRef.current.querySelector('#section1 .left'), {
-                x: -2000,
+            section1Timeline.current.from(mainRef.current.querySelectorAll('#section1 .left h1, h6, .button'), {
+                x: -1000,
                 opacity: 0,
-                duration: 0.5,
-                ease: 'power1.out',
+                duration: 1,
+                stagger: 0.2,
+                ease: 'power4.out',
             }, 'a');
 
-            section1Timeline.current.from(mainRef.current.querySelector('#section1 .right'), {
-                x: 2000,
-                opacity: 0,
-                duration: 0.5,
-                ease: 'power1.out',
+            section1Timeline.current.fromTo(mainRef.current.querySelector('#section1 .right'), {scale: 0, opacity: 0}, {
+                scale: 1,
+                opacity: 1,
+                duration: 1.5,
+                ease: 'power4.out',
             }, 'a');
 
-            // Scroll-triggered animation for section 2
             gsap.fromTo(
                 "#section2",
                 {opacity: 0, y: 400},
@@ -48,7 +47,8 @@ export default function Home() {
                         trigger: "#section2",
                         start: "top 80%",
                         end: "top 60%",
-                        scrub: 1,
+                        scrub: 1.5,
+                        ease: 'power4.out',
                     }
                 }
             );
@@ -68,7 +68,7 @@ export default function Home() {
                     <h6 className="text-[3vw] md:text-[1.5vw] lg:text-[1vw] font-fira_regular mt-4">
                         A passionate full stack web developer from Bangladesh.
                     </h6>
-                    <div className='my-16 lg:mt-36'>
+                    <div className='my-16 lg:mt-36 button'>
                         <Link href={'/contact'}
                               className="px-8 py-3 text-[4vw] md:text-[2vw] lg:text-[1.2vw] bg-primary text-white rounded-full font-fira_regular">
                             Get in touch

@@ -14,35 +14,30 @@ export default function Contact() {
 
     useGSAP(
         () => {
-            // Register GSAP plugin
             gsap.registerPlugin();
 
-            // Create the animation timeline
             const contactTimeline = gsap.timeline();
 
-            // Animating the left section
-            contactTimeline.fromTo(
-                contactLeftRef.current,
-                {x: -2000, opacity: 0},
+            contactTimeline.from(
+                contactLeftRef.current.querySelectorAll('h1, p, button, li'),
                 {
-                    x: 0,
-                    opacity: 1,
-                    duration: 0.5,
-                    ease: "power1.out",
+                    y: 300,
+                    opacity: 0,
+                    stagger: 0.2,
+                    ease: "power4.out",
+                    duration: 1,
                 },
                 "a"
             );
 
-            // Animating the right section
-            contactTimeline.fromTo(
-                contactRightRef.current,
-                {scale: 2, rotate: 90, opacity: 0},
+            contactTimeline.from(
+                contactRightRef.current.querySelectorAll('input, textarea, button'),
                 {
-                    scale: 1,
-                    rotate: 0,
-                    opacity: 1,
-                    duration: 0.5,
-                    ease: "power1.out",
+                    y: 300,
+                    opacity: 0,
+                    stagger: 0.2,
+                    ease: "power4.out",
+                    duration: 1,
                 },
                 "a"
             );
@@ -101,19 +96,29 @@ export default function Contact() {
 
                 <div className="p-6 rounded-lg font-fira_regular shadow-xl" ref={contactRightRef}>
                     <form className="mt-8 space-y-4">
-                        <input type='text' placeholder='Name'
-                               className="w-full rounded-lg py-3 px-4 text-gray-800 text-sm outline-[#178573]"/>
-                        <input type='email' placeholder='Email'
-                               className="w-full rounded-lg py-3 px-4 text-gray-800 text-sm outline-[#178573]"/>
-                        <input type='text' placeholder='Subject'
-                               className="w-full rounded-lg py-3 px-4 text-gray-800 text-sm outline-[#178573]"/>
-                        <textarea placeholder='Message' rows="6"
-                                  className="w-full rounded-lg px-4 text-gray-800 text-sm pt-3 outline-[#178573]"></textarea>
-                        <button type='button'
-                                className="text-white bg-primary tracking-wide rounded-lg text-sm px-4 py-3 flex items-center justify-center w-full !mt-6">
-                            <FontAwesomeIcon icon={faPaperPlane} className='h-4 w-4 text-white mr-2'/>
-                            Send Message
-                        </button>
+                        <div className={'w-full h-full overflow-hidden'}>
+                            <input type='text' placeholder='Name'
+                                   className="w-full rounded-lg py-3 px-4 text-gray-800 text-sm outline-[#178573]"/>
+                        </div>
+                        <div className={'w-full h-full overflow-hidden'}>
+                            <input type='email' placeholder='Email'
+                                   className="w-full rounded-lg py-3 px-4 text-gray-800 text-sm outline-[#178573]"/>
+                        </div>
+                        <div className={'w-full h-full overflow-hidden'}>
+                            <input type='text' placeholder='Subject'
+                                   className="w-full rounded-lg py-3 px-4 text-gray-800 text-sm outline-[#178573]"/>
+                        </div>
+                        <div className={'w-full h-full overflow-hidden'}>
+                            <textarea placeholder='Message' rows="6"
+                                      className="w-full rounded-lg px-4 text-gray-800 text-sm pt-3 outline-[#178573]"></textarea>
+                        </div>
+                        <div className={'w-full h-full overflow-hidden'}>
+                            <button type='button'
+                                    className="text-white bg-primary tracking-wide rounded-lg text-sm px-4 py-3 flex items-center justify-center w-full !mt-6">
+                                <FontAwesomeIcon icon={faPaperPlane} className='h-4 w-4 text-white mr-2'/>
+                                Send Message
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

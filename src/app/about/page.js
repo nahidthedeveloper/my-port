@@ -111,18 +111,16 @@ export default function About() {
                     </div>
 
                     {/* Right Section */}
-                    <MagneticGSAP>
-                        <div
-                            className="h-[555px] w-[579px] rounded-3xl overflow-hidden"
-                            ref={aboutRightRef}
-                        >
-                            <img
-                                src="/images/me.png"
-                                alt="Image"
-                                className="object-cover object-center w-full h-full rounded-3xl"
-                            />
-                        </div>
-                    </MagneticGSAP>
+                    <div
+                        className="h-[555px] w-[579px] rounded-3xl overflow-hidden"
+                        ref={aboutRightRef}
+                    >
+                        <img
+                            src="/images/illustration-1.svg"
+                            alt="Image"
+                            className="object-cover object-center w-full h-full rounded-3xl"
+                        />
+                    </div>
                 </div>
             </CommonPageLayout>
         </div>
