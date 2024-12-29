@@ -22,14 +22,14 @@ export default function Template({ children }) {
                 }, {
                     scaleY: 1,
                     rotation: 0,
-                    duration: 1,
+                    duration: 1.2,
                     ease: 'power2.inOut',
                 })
                 .to(overlayRef.current, {
                     scaleY: 0,
                     transformOrigin: 'top right',
                     rotation: 55,
-                    duration: 1,
+                    duration: 1.2,
                     ease: 'power2.inOut',
                 })
                 .eventCallback('onComplete', () => {

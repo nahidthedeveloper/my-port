@@ -2,10 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import {useEffect, useRef} from "react";
+import {useRef} from "react";
 import MagneticGSAP from "@/components/GSAP/MagneticGSAP";
-import {gsap} from "gsap";
+import {useGSAP} from "@gsap/react";
+import {gsap} from "gsap"
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+
 
 const TitleScroll = dynamic(() => import("@/components/TitleScroll"), {ssr: false});
 const CircleText = dynamic(() => import("@/components/CircleText"), {ssr: false});
@@ -14,51 +16,48 @@ export default function Home() {
     const mainRef = useRef();
     const section1Timeline = useRef();
 
-    useEffect(() => {
-        document.title = 'Nahid Port. | Home';
-        gsap.registerPlugin(ScrollTrigger);
+    useGSAP(
+        () => {
+            gsap.registerPlugin(ScrollTrigger);
 
-        const ctx = gsap.context(() => {
             section1Timeline.current = gsap.timeline();
 
-            const main = mainRef.current;
-
-            section1Timeline.current.from(main.querySelector('#section1 .left'), {
+            section1Timeline.current.from(mainRef.current.querySelector('#section1 .left'), {
                 x: -2000,
                 opacity: 0,
                 duration: 0.5,
                 ease: 'power1.out',
             }, 'a');
 
-            section1Timeline.current.from(main.querySelector('#section1 .right'), {
+            section1Timeline.current.from(mainRef.current.querySelector('#section1 .right'), {
                 x: 2000,
                 opacity: 0,
                 duration: 0.5,
                 ease: 'power1.out',
             }, 'a');
 
+            // Scroll-triggered animation for section 2
             gsap.fromTo(
                 "#section2",
                 {opacity: 0, y: 400},
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 1.5,
+                    duration: 2,
                     scrollTrigger: {
                         trigger: "#section2",
-                        start: "top 75%",
+                        start: "top 80%",
                         end: "top 60%",
                         scrub: 1,
                     }
                 }
             );
-        });
-
-        return () => ctx.revert();
-    }, []);
+        },
+        {scope: mainRef}
+    );
 
     return (
-        <div ref={mainRef}>
+        <div ref={mainRef} className={'snap-x snap-mandatory'}>
             <section id='section1'
                      className="max-w-screen-xl w-full lg:min-h-screen pt-[3vw] px-4 mx-auto flex flex-col lg:flex-row justify-between">
                 <div className="left text-center lg:text-left">
@@ -92,14 +91,13 @@ export default function Home() {
                 </div>
             </section>
 
-            <section id='section2'
+            <section id="section2"
                      className="snap-start min-h-screen w-full flex justify-center items-center relative bg-men bg-cover bg-center bg-no-repeat"
-                     style={{scrollSnapAlign: "start"}} // Snap this section to the top
             >
                 <TitleScroll/>
             </section>
 
-            <section id='section3' className='snap-start min-h-screen w-full h-full flex justify-center items-center'>
+            <section id='section3' className='min-h-screen w-full h-full flex justify-center items-center'>
                 <CircleText/>
             </section>
         </div>

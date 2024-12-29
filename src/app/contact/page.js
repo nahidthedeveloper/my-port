@@ -3,17 +3,57 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebookF, faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import Link from "next/link";
 import {faEnvelope, faLocationDot, faPaperPlane, faPhone} from "@fortawesome/free-solid-svg-icons";
-import {useEffect} from "react";
+import {useRef} from "react";
 import CommonPageLayout from "@/layout/CommonPageLayout";
+import {gsap} from "gsap";
+import {useGSAP} from "@gsap/react";
 
 export default function Contact() {
-    useEffect(() => {
-        document.title = 'Nahid Port. | Contact'
-    }, [])
+    const contactLeftRef = useRef();
+    const contactRightRef = useRef();
+
+    useGSAP(
+        () => {
+            // Register GSAP plugin
+            gsap.registerPlugin();
+
+            // Create the animation timeline
+            const contactTimeline = gsap.timeline();
+
+            // Animating the left section
+            contactTimeline.fromTo(
+                contactLeftRef.current,
+                {x: -2000, opacity: 0},
+                {
+                    x: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: "power1.out",
+                },
+                "a"
+            );
+
+            // Animating the right section
+            contactTimeline.fromTo(
+                contactRightRef.current,
+                {scale: 2, rotate: 90, opacity: 0},
+                {
+                    scale: 1,
+                    rotate: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: "power1.out",
+                },
+                "a"
+            );
+        },
+        {scope: contactLeftRef}
+    );
+
     return (
         <CommonPageLayout>
             <div className="grid lg:grid-cols-2 gap-14">
-                <div>
+                <div ref={contactLeftRef}>
                     <h1 className="text-5xl font-bold font-exo2_bold">Get in Touch</h1>
                     <p className="text-base mt-4 leading-relaxed font-exo2_regular">Have some big idea or brand to
                         develop and
@@ -59,7 +99,7 @@ export default function Contact() {
                     </ul>
                 </div>
 
-                <div className="p-6 rounded-lg font-fira_regular shadow-xl">
+                <div className="p-6 rounded-lg font-fira_regular shadow-xl" ref={contactRightRef}>
                     <form className="mt-8 space-y-4">
                         <input type='text' placeholder='Name'
                                className="w-full rounded-lg py-3 px-4 text-gray-800 text-sm outline-[#178573]"/>
